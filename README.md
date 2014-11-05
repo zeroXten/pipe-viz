@@ -3,14 +3,14 @@ pipe-viz
 
 Pipeline visualisation using processing.js
 
-== Installation ==
+## Installation
 
 Checkout or download the files in the repo.
 
     $ git clone https://github.com/zeroXten/pipe-viz.git
     $ cd pipe-viz
 
-== Running it ==
+## Running it
 
 Run something to serve the files. We're going to use the serve rubygem.
 
@@ -28,7 +28,7 @@ See something like this:
 
 ![Example Pipe Image](example.png)
 
-== Configuring nodes and edges ==
+## Configuring nodes and edges
 
 The path=example translates to the example directory which contains two files:
 
@@ -51,19 +51,19 @@ Basic parameters and the nodes and edges are definied in elements.csv:
 
 The meaning of each field depends on the type specified in the first element. There should be no spaces between commas and element values.
 
-=== title
+### title
 
 Second element is the value of the title
 
-=== color
+### color
 
 Default forground color. Fields are Red, Green, Blue
 
-=== background
+### background
 
 Sets the background color. Fields are Red, Green, Blue
 
-=== node
+### node
 
 Specifies a node. Fields are:
 
@@ -75,7 +75,7 @@ Specifies a node. Fields are:
 * height as integer pixels
 * url - optional. Can't contain commas
 
-=== edge
+### edge
 
 Specifies an edge. Fields are:
 
@@ -87,7 +87,7 @@ Specifies an edge. Fields are:
 * final y position as integer pixels
 * url - optional. Can't contain commas
 
-== Setting status ==
+## Setting status
 
 Pipe-viz has been designed to be generic. It doesn't try to impose any meaning, it just wants to draw colored boxes and lines.
 
@@ -108,6 +108,6 @@ In this case we're setting node1 to red and edge1 to yellow.
 
 How exactly something is added to the status.csv is up to you. You might want to run a bash script in a cron job that makes various curl calls to your monitoring platform.
 
-== Adding more stuff ==
+## Adding more stuff
 
 Just create a new directory in the folder with the elements.csv and status.csv file and call it with the ?path= param.
