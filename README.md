@@ -26,6 +26,7 @@ Go to the example visualisation in your browser:
 
 See something like this:
 
+![Example Pipe Image](example.png)
 
 == Configuring nodes and edges ==
 
