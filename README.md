@@ -28,6 +28,8 @@ See something like this:
 
 ![Example Pipe Image](example.png)
 
+Pipe-viz is currently configured to refresh every 10 seconds.
+
 ## Configuring nodes and edges
 
 The path=example translates to the example directory which contains two files:
