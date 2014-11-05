@@ -67,6 +67,7 @@ void setup() {
         break;
     }
   } 
+  load_status();
 }
   
 void draw() {
@@ -81,24 +82,7 @@ void draw() {
 
   // Only do checks every 300 frames which at 30 frames per second is 10 seconds
   if (frameCount % 300 == 0) {
-
-    // Reset the colours
-    Iterator i = elements.entrySet().iterator();
-    while (i.hasNext()) {
-      Map.Entry me = (Map.Entry)i.next();
-      element = me.getValue();
-      element.set_c(default_color);
-    }
-
-    // Read status values
-    status = loadStrings(status_path);
-    for (int i = 0; i < status.length; i++) {
-      String[] fields = splitTokens(status[i],",");
-      element = elements.get(fields[0]);
-      if (element != null) {
-        element.set_c(color((int) fields[1], (int) fields[2], (int) fields[3]));
-      }
-    } 
+    load_status();
   }
 
   // Draw all the nodes and edges
@@ -110,6 +94,28 @@ void draw() {
   }
 
 }
+
+void load_status() {
+  // Reset the colours
+  Iterator i = elements.entrySet().iterator();
+  while (i.hasNext()) {
+    Map.Entry me = (Map.Entry)i.next();
+    element = me.getValue();
+    element.set_c(default_color);
+  }
+
+  // Read status values
+  status = loadStrings(status_path);
+  for (int i = 0; i < status.length; i++) {
+    String[] fields = splitTokens(status[i],",");
+    element = elements.get(fields[0]);
+    if (element != null) {
+      element.set_c(color((int) fields[1], (int) fields[2], (int) fields[3]));
+    }
+  } 
+
+}
+
 
 // Got a mouse click, see if we have any matching events
 void mouseClicked() {
