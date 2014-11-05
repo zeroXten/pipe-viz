@@ -1,0 +1,10 @@
+title,Example Pipe
+color,8,146,208
+background,0,0,0
+node,node1,Node 1,0,0,100,50,http://www.google.com
+node,node2,Node 2,300,0,100,50,http://www.google.com
+node,node3,Node 3,600,0,100,50,http://www.google.com
+node,node4,Node 4,900,0,100,50,http://www.google.com
+edge,edge1,Edge 1,100,25,300,25,http://www.google.com
+edge,edge2,Edge 2,400,25,600,25,http://www.google.com
+edge,edge3,Edge 3,700,25,900,25,http://www.google.com
