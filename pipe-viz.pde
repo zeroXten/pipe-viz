@@ -56,6 +56,14 @@ void setup() {
         e = new Edge(name, x, y, x1, y1, url);
         elements.put((String) fields[1], e);
         break;
+      case "label":
+        String text = (String) fields[2];
+        int x = (int) fields[3] + x_offset;
+        int y = (int) fields[4] + y_offset;
+        int size = (int) fields[5];
+        l = new Label(text, x, y, size);
+        elements.put((String) fields[1], l);
+        break;
       case "title":
         title = (String) fields[1];
         break;
@@ -193,11 +201,11 @@ class Edge {
     strokeWeight(2);
     line(this.x, this.y, this.x1, this.y1);
     ellipse(this.x1, this.y1, 15, 15);
-    noStroke;
+    noStroke();
 
     fill(this.c);
     textAlign(CENTER);
-    text(this.name, this.x + (this.x1 - this.x)/2, this.y + (this.y1 - this.y)/2 + 18)
+    text(this.name, this.x + (this.x1 - this.x)/2, this.y + (this.y1 - this.y)/2 + 18);
     noFill();
   }
 
@@ -208,6 +216,37 @@ class Edge {
   color get_c() {
     return this.c;
   }
+}
+
+class Label {
+  int x, y;
+  String name;
+  font font;
+  color c;
+
+  Label(String name, int x, int y, int size) {
+    this.name = name;
+    this.x = x;
+    this.y = y;
+    this.font = createFont("sans-serif", size);
+    this.c = default_color;
+  }
+
+  void draw() {
+    fill(this.c);
+    noStroke();
+    textAlign(LEFT,TOP);
+    textFont(this.font);
+    text(this.name, this.x, this.y);
+  }
+
+  void set_c(color c) {
+    this.c = c;
+  }
+  color get_c() {
+    return this.c;
+  }
+
 }
 
 class ClickEvent {
